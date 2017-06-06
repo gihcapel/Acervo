@@ -1,290 +1,172 @@
 <!DOCTYPE html>
+<html lang="en">
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
+<head>
 
-        <form name="registro" method="GET">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-            <label>ISBN:<input type="text" name="ISBN" value="" /></label><br><br>
-            <label>Título:<input type="text" name="titulo" value="" /></label><br><br>
-            <label>Edicao:<input type="text" name="edicao" value="" /></label><br><br>
-            <label>Categoria:
-                <select name="categoria">
-                    <option value="romance">Romance </option>
-                    <option value="ficcao">Ficção </option>
-                    <option value="fantasia">Fantasia </option>
-                    <option value="terror">Terror </option>
-                    <option value="suspense">Suspense </option>
-                    <option value="infatil">Infantil </option>
-                    <option value="didatico">Didático</option>
-                    <option value="autoajuda">Auto Ajuda </option>
-                    <option value="biografia">Biografia </option>
-                    <option value="religiao">Religião </option>
-                </select>
-            </label><br><br>
-            <label>Nome do autor:<input type="text" name="nome" value="" /></label><br><br>
-            <label>Nacionalidade:
-                <select name="nacionalidade">
-                    <option value="brasileiro"> Brasileiro </option>
-                    <option value= "estrangeiro"> Estrangeiro </option>
-                </select>
-            </label><br><br>
-            <label>Preço:<input type="text" name="preco" value="" /></label><br><br>
-            <label>Ano Publicação:<input type="text" name="pub" value="" /></label><br><br>
-            <label>Editora:<input type="text" name="editora" value="" /></label><br><br>
-            <form name="usr" enctype="multipart/form-data" method="post" action="upload.php">
-                <table border="0" cellpadding="5" cellspacing="5">
-                    <tr>
-                        <td height="30"><b>Arquivo:</b></td>
-                        <td height="30" >
-                            <input type="hidden" name="MAX_FILE_SIZE" value="100000">
-                            <input type="FILE" name="ARQUIVO" size="50">
-                            <input type="submit"  value=" Enviar">
-                        </td>
-                    </tr>
-                </table>
-            </form>
+    <title>Business Casual - Start Bootstrap Theme</title>
 
-            <input type="submit" value="Cadastrar" name="funcao"/>
-            <input type="submit" value="Mostrar" name="funcao"/>
-        </form>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-        <form name="mostrar" method="GET">
-            <label> 
-                <select name="pesqp"> 
-                    <option value="30"> Menores de 30 </option>
-                    <option value="30_50"> Entre 30 e 50 </option>
-                    <option value="50"> Maiores de 50 </option>
-                </select>
-                <input type="submit" value="Mostrar por preço" name="funcao"/>
-            </label>
-            <label>
-                <select name="pesqcat">
-                    <option value="romance">Romance </option>
-                    <option value="ficcao">Ficção </option>
-                    <option value="fantasia">Fantasia </option>
-                    <option value="terror">Terror </option>
-                    <option value="suspense">Suspense </option>
-                    <option value="infatil">Infantil </option>
-                    <option value="didatico">Didático</option>
-                    <option value="autoajuda">Auto Ajuda </option>
-                    <option value="biografia">Biografia </option>
-                    <option value="religiao">Religião </option>
-                </select>
-                <input type="submit" value="Mostrar por categoria" name="funcao"/>
-        </form>
+    <!-- Custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet">
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-        <?php
+</head>
 
+<body>
 
-        if(isset($_GET['funcao']) && $_GET['funcao']=="Cadastrar"){
+    <div class="brand">Acervo Pessoal</div>
 
-        echo cadastra();
-        }
+    <!-- Navigation -->
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
+                <a class="navbar-brand" href="index.html">Business Casual</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.php">Ver Livros</a>
+                    </li>
+                    <li>
+                        <a href="cadastro.php">Cadastrar Livros</a>
+                    </li>
+                    <li>
+                        <a href="emprestimos.php">Empréstimos</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
-        if(isset($_GET['funcao'])&& $_GET['funcao']=="Mostrar"){
+    <div class="container">
 
-        mostra();
-        }
-        if(isset($_GET['funcao'])&& $_GET['funcao']=="Mostrar por preço"){
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12 text-center">
+                    <div id="carousel-example-generic" class="carousel slide">
+                       
 
-        mostrapreco();
-        }
-        if(isset($_GET['funcao'])&& $_GET['funcao']=="Mostrar por categoria"){
-
-        mostracateg();
-        }
-
-        $tamanho_maximo = 100000; // em bytes
-        $tipos_aceitos = array("image/gif","image/jpeg","image/png","image/bmp");
-        // Valida o arquivo enviado
-        if (isset($_FILES['ARQUIVO'])){
-			$arquivo = $_FILES['ARQUIVO'];
-
-        if($arquivo['error'] != 0) {
-        echo '<p><b><font color="red">Erro no Upload do arquivo<br>';
-        switch($arquivo['erro']) {
-        case  UPLOAD_ERR_INI_SIZE:
-        echo 'O Arquivo excede o tamanho máximo permitido';
-        break;
-        case UPLOAD_ERR_FORM_SIZE:
-        echo 'O Arquivo enviado é muito grande';
-        break;
-        case  UPLOAD_ERR_PARTIAL:
-        echo 'O upload não foi completo';
-        break;
-        case UPLOAD_ERR_NO_FILE:
-        echo 'Nenhum arquivo foi informado para upload';	
-        break;
-        }
-        echo	'</font></b></p>';
-        exit;
-        }
-        if($arquivo['size']==0 OR $arquivo['tmp_name']==NULL) {
-        echo '<p><b><font color="red">Nenhum arquivo enviado
-        </font></b></p>';
-        exit;
-        }
-        if($arquivo['size']>$tamanho_maximo) {
-        echo '<p><b><font color="red">O Arquivo enviado é muito grande
-        (Tamanho Máximo = ' . $tamaho_maximo .	'</font></b></p>';
-        exit;
-        }
-        if(array_search($arquivo['type'],$tipos_aceitos)===FALSE) {
-        echo '<p><b><font color="red">O Arquivo enviado não é do tipo (' . 
-        $arquivo['type'] . ') aceito para upload. 
-        Os Tipos Aceitos São:	</font></b></p>';
-        echo '<pre>';
-        print_r($tipos_aceitos);
-        echo '</pre>';
-        exit;
-        }
-        // Copia o arquivo enviado
-        $destino = 'C:\\xampp\\htdocs\\Acervo\\Imagens\\'.$arquivo['name'];
-        if(move_uploaded_file($arquivo['tmp_name'],$destino)) {
-        // Mostramos  
-        echo  '<p><font color="navy"><b>';
-        echo 'O Arquivo foi carregado com sucesso!</b></font></p>';
-        echo '<img src= "Imagens\\'.$arquivo['name']. '" border=0>';
-        }
-        else {
-        echo '<p><b><font color="red">Ocorreu um erro durante o upload </font></b></p>';
-        }
-        }
-
-        function cadastra(){
-			$xml = simplexml_load_file("acervo.xml");
-
-			$livro = $xml->addChild('livro');
-			$livro->addAttribute('ISBN', $_GET['ISBN']);
-			$livro->addChild('titulo', $_GET['titulo']);
-			$livro->titulo->addAttribute('edicao', $_GET['edicao']);
-			$livro->addChild('categoria', $_GET['categoria']);
-			$livro->addChild('autores', "");
-			$livro->autores->addChild('autor', $_GET['nome']);
-			$livro->autores->autor->addAttribute('nacionalidade', $_GET['nacionalidade']);
-			$livro->addChild('preco', $_GET['preco']);
-			$livro->addChild('anopub', $_GET['pub']);
-			$livro->addChild('editora', $_GET['editora']);
-
-
-			file_put_contents("acervo.xml", $xml->asXML());
-        }
-
-
-        function mostra(){
-			$xml = simplexml_load_file('acervo.xml');
-			for($i=0; $i<$xml->count(); $i++){
-				echo "<p> Título: ".strval($xml->livro[$i]->titulo)."</br></p>";
-				echo "<p> ISBN: ".strval($xml->livro[$i]['ISBN'])."</br></p>";
-				echo "<p> Edição: ".strval($xml->livro[$i]->titulo['edicao'])."</br></p>";
-				echo "<p> Categoria: ".strval($xml->livro[$i]->categoria)."</br></p>";
-				echo "<p> Autores: ";
-					for($j=0; $j<$xml->livro[$i]->autores->count(); $j++){
-						echo strval($xml->livro[$i]->autores[$j]->autor);
-						echo "(".$xml->livro[$i]->autores[$j]->autor['nacionalidade'].")";           
-					}
-				echo "<p> Preço: ".strval($xml->livro[$i]->preco)."</br></p>";
-				echo "<p> Ano de Publicação: ".strval($xml->livro[$i]->anopub)."</br></p>";
-				echo "<p> Editora: ".strval($xml->livro[$i]->editora)."</br></p>";
-				echo "<hr/>";
-			}  
-        }   
-
-        function mostrapreco(){
-			$xml = simplexml_load_file('acervo.xml');
-			if (isset ($_GET['pesqp'])){
-				$valor= $_GET['pesqp'];
-			}
-			for($i=0; $i<$xml->count(); $i++){
-				$preco=floatval($xml->livro[$i]->preco->__toString());
-				if ($valor == '30'){
-					if($preco <= 30){
-						echo "<p> Título: ".strval($xml->livro[$i]->titulo)."</br></p>";
-						echo "<p> ISBN: ".strval($xml->livro[$i]['ISBN'])."</br></p>";
-						echo "<p> Edição: ".strval($xml->livro[$i]->titulo['edicao'])."</br></p>";
-						echo "<p> Categoria: ".strval($xml->livro[$i]->categoria)."</br></p>";
-						echo "<p> Autores: ";
-						for($j=0; $j<$xml->livro[$i]->autores->count(); $j++){
-							echo strval($xml->livro[$i]->autores[$j]->autor);
-							echo "(".$xml->livro[$i]->autores[$j]->autor['nacionalidade'].")";           
-						}
-						echo "<p> Preço: ".strval($xml->livro[$i]->preco)."</br></p>";
-						echo "<p> Ano de Publicação: ".strval($xml->livro[$i]->anopub)."</br></p>";
-						echo "<p> Editora: ".strval($xml->livro[$i]->editora)."</br></p>";
-						echo "<hr/>";
-					}
-				}
-				if ($valor == '30_50'){
-					if($preco >= 31 && $preco <=50){
-							echo "<p> Título: ".strval($xml->livro[$i]->titulo)."</br></p>";
-							echo "<p> ISBN: ".strval($xml->livro[$i]['ISBN'])."</br></p>";
-							echo "<p> Edição: ".strval($xml->livro[$i]->titulo['edicao'])."</br></p>";
-							echo "<p> Categoria: ".strval($xml->livro[$i]->categoria)."</br></p>";
-							echo "<p> Autores: ";
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+							<?php
+							$xml = simplexml_load_file('acervo.xml');
+							for($i=0; $i<$xml->count(); $i++){
+								echo "<fieldset><div class=\"item\"><p class=\"titulo\"> Título: </p><p>".strval($xml->livro[$i]->titulo)."</br></p>";
+								echo "<p class=\"isbn\"> ISBN: ".strval($xml->livro[$i]['ISBN'])."</br></p>";
+								echo "<p class=\"edicao\"> Edição: ".strval($xml->livro[$i]->titulo['edicao'])."</br></p>";
+								echo "<p class=\"categ\"> Categoria: ".strval($xml->livro[$i]->categoria)."</br></p>";
+								echo "<p class=\"autor\"> Autores: ";
 							for($j=0; $j<$xml->livro[$i]->autores->count(); $j++){
 								echo strval($xml->livro[$i]->autores[$j]->autor);
 								echo "(".$xml->livro[$i]->autores[$j]->autor['nacionalidade'].")";           
 							}
-							echo "<p> Preço: ".strval($xml->livro[$i]->preco)."</br></p>";
-							echo "<p> Ano de Publicação: ".strval($xml->livro[$i]->anopub)."</br></p>";
-							echo "<p> Editora: ".strval($xml->livro[$i]->editora)."</br></p>";
-							echo "<hr/>";
+								echo "<p class=\"valor\"> Preço: ".strval($xml->livro[$i]->preco)."</br></p>";
+								echo "<p class=\"publ\"> Ano de Publicação: ".strval($xml->livro[$i]->anopub)."</br></p>";
+								echo "<p class=\"editora\"> Editora: ".strval($xml->livro[$i]->editora)."</br></p>";
+								echo"</div> <div class=\"foto\"><img src='Imagens\\".strval($xml->livro[$i]->imagem)."'></td>";
+								echo "<hr/></div></fieldset>";
+							}
+							?>
+                        </div>
 
-					}
-				}
-				else{
-					if($preco >= 51){
-						echo "<p> Título: ".strval($xml->livro[$i]->titulo)."</br></p>";
-						echo "<p> ISBN: ".strval($xml->livro[$i]['ISBN'])."</br></p>";
-						echo "<p> Edição: ".strval($xml->livro[$i]->titulo['edicao'])."</br></p>";
-						echo "<p> Categoria: ".strval($xml->livro[$i]->categoria)."</br></p>";
-						echo "<p> Autores: ";
-						for($j=0; $j<$xml->livro[$i]->autores->count(); $j++){
-							echo strval($xml->livro[$i]->autores[$j]->autor);
-							echo "(".$xml->livro[$i]->autores[$j]->autor['nacionalidade'].")";           
-						}
-						echo "<p> Preço: ".strval($xml->livro[$i]->preco)."</br></p>";
-						echo "<p> Ano de Publicação: ".strval($xml->livro[$i]->anopub)."</br></p>";
-						echo "<p> Editora: ".strval($xml->livro[$i]->editora)."</br></p>";
-						echo "<hr/>";
+                        <!-- Controls -->
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="icon-prev"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="icon-next"></span>
+                        </a>
+                    </div>
+                    <h2 class="brand-before">
+                        <small><form class="pesquisar" name="mostrar" method="POST" action= "upload.php">
+							<table>
+							<!--pesquisa por preço-->
+								<tr><label> 
+									<td><select name="pesqp"> 
+										<option value="30"> Menores de 30 </option>
+										<option value="30_50"> Entre 30 e 50 </option>
+										<option value="50"> Maiores de 50 </option>
+									</select></td>
+									<td><input class="preco" type="submit" value="Mostrar por preço" name="funcao"/></td>
+								</label></tr>
+								<!--pesquisa por categoria-->
+								<tr><label>
+									<td><select name="pesqcat">
+										<option value="romance">Romance </option>
+										<option value="ficcao">Ficção </option>
+										<option value="fantasia">Fantasia </option>
+										<option value="terror">Terror </option>
+										<option value="suspense">Suspense </option>
+										<option value="infatil">Infantil </option>
+										<option value="didatico">Didático</option>
+										<option value="autoajuda">Auto Ajuda </option>
+										<option value="biografia">Biografia </option>
+										<option value="religiao">Religião </option>
+									</select></td>
+									<td><input class="categoria" type="submit" value="Mostrar por categoria" name="funcao"/></td>
+									</label></tr>
+							</table>
+							</form></small>
+                    </h2>
+                    <h1 class="brand-name">Seu Acervo</h1>
+                    <hr class="tagline-divider">
+                    
+                </div>
+            </div>
+        </div>
 
-					}
-				}
-			}
-        }   
 
-        function mostracateg(){
-			$xml = simplexml_load_file('acervo.xml');
-			if (isset ($_GET['pesqcat'])){
-				$categ= $_GET['pesqcat'];
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-				for($i=0; $i<$xml->count(); $i++){
-					$categoria=($xml->livro[$i]->categoria);
-					if ($categ == $categoria){
-						echo "<p> Título: ".strval($xml->livro[$i]->titulo)."</br></p>";
-						echo "<p> ISBN: ".strval($xml->livro[$i]['ISBN'])."</br></p>";
-						echo "<p> Edição: ".strval($xml->livro[$i]->titulo['edicao'])."</br></p>";
-						echo "<p> Categoria: ".strval($xml->livro[$i]->categoria)."</br></p>";
-						echo "<p> Autores: ";
-						for($j=0; $j<$xml->livro[$i]->autores->count(); $j++){
-							echo strval($xml->livro[$i]->autores[$j]->autor);
-							echo "(".$xml->livro[$i]->autores[$j]->autor['nacionalidade'].")";           
-						}
-						echo "<p> Preço: ".strval($xml->livro[$i]->preco)."</br></p>";
-						echo "<p> Ano de Publicação: ".strval($xml->livro[$i]->anopub)."</br></p>";
-						echo "<p> Editora: ".strval($xml->livro[$i]->editora)."</br></p>";
-						echo "<hr/>";
-					}  
-				}  
-			}
-        }
-        ?>
-    </body>
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+</body>
 </html>
