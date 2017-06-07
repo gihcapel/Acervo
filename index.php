@@ -9,13 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Business Casual - Start Bootstrap Theme</title>
+    <title>Acervo</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/business-casual.css" rel="stylesheet">
+    
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
@@ -32,7 +33,10 @@
 
 <body>
 
-    <div class="brand">Acervo Pessoal</div>
+ <ul class="titulo"> 
+    <li><div class="brand">Acervo Pessoal</div></li>
+    <li><img class="livro" src="img/livro.png"></li>
+ </ul>  
 
     <!-- Navigation -->
     <nav class="navbar navbar-default" role="navigation">
@@ -46,7 +50,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Business Casual</a>
+                <a class="navbar-brand" href="index.html">Acervo</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -66,17 +70,53 @@
         </div>
         <!-- /.container -->
     </nav>
-
+ 
     <div class="container">
 
         <div class="row">
-            <div class="box">
-                <div class="col-lg-12 text-center">
-                    <div id="carousel-example-generic" class="carousel slide">
-                       
 
+            <div class="box">
+
+                <div class="col-lg-12 text-center">
+                <h1 class="brand-name">Seu Acervo</h1>
+
+                <h2 class="brand-before">
+                        <small><form class="pesquisar" name="mostrar" method="POST" action= "upload.php">
+                            <table ">
+                            <!--pesquisa por preço-->
+                                <tr><label> 
+                                    <td class="pesquisapreco"><select name="pesqp"> 
+                                        <option value="30"> Menores de 30 </option>
+                                        <option value="30_50"> Entre 30 e 50 </option>
+                                        <option value="50"> Maiores de 50 </option>
+                                    </select></td>
+                                    <td class="pesquisapreco"> <input class="preco" type="submit" value="Mostrar por preço" name="funcao"/></td>
+                                </label>
+                                <!--pesquisa por categoria-->
+                                <label>
+                                    <td class="pesquisacateg"><select name="pesqcat">
+                                        <option value="romance">Romance </option>
+                                        <option value="ficcao">Ficção </option>
+                                        <option value="fantasia">Fantasia </option>
+                                        <option value="terror">Terror </option>
+                                        <option value="suspense">Suspense </option>
+                                        <option value="infatil">Infantil </option>
+                                        <option value="didatico">Didático</option>
+                                        <option value="autoajuda">Auto Ajuda </option>
+                                        <option value="biografia">Biografia </option>
+                                        <option value="religiao">Religião </option>
+                                    </select></td>
+                                    <td class="pesquisacateg"><input class="categoria" type="submit" value="Mostrar por categoria" name="funcao"/></td>
+                                    </label></tr>
+                            </table>
+                            </form></small>
+                    </h2>
+                     
+                    <div id="carousel-example-generic" class="carousel slide">
+                                            
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
+                            <div class="wall">
 							<?php
 							$xml = simplexml_load_file('acervo.xml');
 							for($i=0; $i<$xml->count(); $i++){
@@ -93,11 +133,12 @@
 								echo "<p class=\"publ\"> Ano de Publicação: ".strval($xml->livro[$i]->anopub)."</br></p>";
 								echo "<p class=\"editora\"> Editora: ".strval($xml->livro[$i]->editora)."</br></p>";
 								echo"</div> <div class=\"foto\"><img src='Imagens\\".strval($xml->livro[$i]->imagem)."'></td>";
-								echo "<hr/></div></fieldset>";
-							}
+								echo "<hr/></div></fieldset>";                               
+                    		}
 							?>
+                            </div>
                         </div>
-
+                        
                         <!-- Controls -->
                         <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
                             <span class="icon-prev"></span>
@@ -106,38 +147,8 @@
                             <span class="icon-next"></span>
                         </a>
                     </div>
-                    <h2 class="brand-before">
-                        <small><form class="pesquisar" name="mostrar" method="POST" action= "upload.php">
-							<table>
-							<!--pesquisa por preço-->
-								<tr><label> 
-									<td><select name="pesqp"> 
-										<option value="30"> Menores de 30 </option>
-										<option value="30_50"> Entre 30 e 50 </option>
-										<option value="50"> Maiores de 50 </option>
-									</select></td>
-									<td><input class="preco" type="submit" value="Mostrar por preço" name="funcao"/></td>
-								</label></tr>
-								<!--pesquisa por categoria-->
-								<tr><label>
-									<td><select name="pesqcat">
-										<option value="romance">Romance </option>
-										<option value="ficcao">Ficção </option>
-										<option value="fantasia">Fantasia </option>
-										<option value="terror">Terror </option>
-										<option value="suspense">Suspense </option>
-										<option value="infatil">Infantil </option>
-										<option value="didatico">Didático</option>
-										<option value="autoajuda">Auto Ajuda </option>
-										<option value="biografia">Biografia </option>
-										<option value="religiao">Religião </option>
-									</select></td>
-									<td><input class="categoria" type="submit" value="Mostrar por categoria" name="funcao"/></td>
-									</label></tr>
-							</table>
-							</form></small>
-                    </h2>
-                    <h1 class="brand-name">Seu Acervo</h1>
+                    
+                   
                     <hr class="tagline-divider">
                     
                 </div>
