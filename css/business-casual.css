@@ -6,13 +6,9 @@
 
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background: url('../img/bg.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    background-color:black;
 }
-
+ 
 h1,
 h2,
 h3,
@@ -190,3 +186,33 @@ footer p {
         clear: both;
     }
 }
+.pesquisar{
+    margin-left:230px;
+}
+
+ .pesquisacateg{    
+    padding:10px;
+}
+
+.pesquisapreco{
+    padding:10px;
+}
+
+.titulo{
+    display:inline;
+}
+.livro{
+    width:50px;
+    height:40px;
+    float:right;
+    margin-top:-65px;
+    margin-right:380px;
+}
+.livro:hover{
+    transform:rotate(400grad);
+    transition:2s;
+}
+.cadastro, .botoes1{
+   margin-left:330px;
+}
+
